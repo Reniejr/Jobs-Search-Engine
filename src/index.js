@@ -1,10 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-
+import RouterWeb from './__COMPONENTS/__MAIN/1.Router-Web/RouterWeb';
+import { HashRouter as Router } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import {searchConfig} from './_STORE'
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={searchConfig()}>
+      <Router>
+        <RouterWeb/>
+      </Router>  
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
