@@ -1,0 +1,36 @@
+@import '../../SASS/Position';
+@import '../../SASS/Compatibilites';
+#home-page{
+    margin: 0;
+    margin-top: 64px;
+    .header{
+        margin: 0;
+        padding: 1rem;
+        display: flex;
+        height: calc(100vh - 64px);
+
+        .right-side, .left-side{
+            @include flexCentered(row);
+            width: 50%;
+            height: 100%;
+        }
+        .right-side{
+            align-items: flex-start;
+        }
+        .left-side{
+            display: flex;
+            flex-direction:column;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #home-page{
+        flex-direction: column;
+        height: auto;
+        .right-side, .left-side{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

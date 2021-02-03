@@ -1,0 +1,26 @@
+@import '../../../SASS/Compatibilites';
+@import '../../../SASS/Position';
+.globe{
+    @include borderRadius(50%);
+    @include animation(rotation-globe, 20s, linear, infinite);
+    width: 400px;
+    height: 400px;
+    background-image: url('./earthmap.jpg');
+    background-size: cover;
+    transform-style: preserve-3d;
+    perspective: 200px;
+    position: relative;
+    .fa-map-marker-alt{
+        position: absolute;
+        color: red;
+        font-size: 1.5rem;
+    }
+
+}
+
+@keyframes rotation-globe {
+    0%{}
+    100%{
+        background-position: 630px 0;
+}
+}
