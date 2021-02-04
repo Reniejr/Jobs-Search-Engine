@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 //UTILITIES IMPORTS
 
@@ -11,18 +12,15 @@ import DetailSection from "../../__COMPONENTS/HomePage/DetailsSection/DetailSect
 //STYLE
 import "./HomePage.scss";
 
-export default class HomePage extends PureComponent {
+const mapStateToProps = (state) => state;
+
+class HomePage extends PureComponent {
   state = {
     page: null,
     currentPage: 0,
     countPage: 1,
     job: null,
   };
-
-  // getJobId = (id) => {
-  //   this.props.getJobId(id);
-  //   console.log(id);
-  // };
 
   getJob = async (id, job) => {
     let jobSelected = job;
@@ -32,7 +30,7 @@ export default class HomePage extends PureComponent {
 
   navigatePage = (e) => {
     let id = e.currentTarget.id,
-      results = this.props.results,
+      results = this.props.search.chunkResults,
       page;
     switch (id) {
       case "prev":
@@ -61,18 +59,20 @@ export default class HomePage extends PureComponent {
   };
 
   componentDidMount() {
-    let results = this.props.results;
+    let results = this.props.search.chunkResults;
     if (results) {
       let page = results[this.state.currentPage];
       this.setState({ page: page, countPage: results.length });
     }
+    console.log(this.props.search);
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.results !== this.props.results) {
-      let results = this.props.results,
+    if (prevProps.search.chunkResults !== this.props.search.chunkResults) {
+      let results = this.props.search.chunkResults,
         page = results[this.state.currentPage];
       this.setState({ page: page, countPage: results.length });
+      console.log(this.props.search);
     }
   }
 
@@ -85,7 +85,11 @@ export default class HomePage extends PureComponent {
             <Globe />
           </div>
           <div className="left-side">
-            <Impagination results={results} navigate={this.navigatePage} />
+            <Impagination
+              results={this.props.search.chunkResults}
+              navigate={this.navigatePage}
+              currentPage={parseInt(this.state.currentPage)}
+            />
             <JobsList page={this.state.page} getJob={this.getJob} />
           </div>
         </div>
@@ -94,3 +98,4 @@ export default class HomePage extends PureComponent {
     );
   }
 }
+export default connect(mapStateToProps)(HomePage);

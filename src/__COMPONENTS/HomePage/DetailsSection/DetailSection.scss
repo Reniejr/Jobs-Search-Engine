@@ -1,0 +1,34 @@
+#detail-section{
+    padding: 2rem;
+    padding-top: 64px;
+    .details{
+        .header{
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            img{
+                max-width: 200px;
+                max-height: 150px;
+            }
+            .title{
+                h2{
+                    font-weight: 700;
+                }
+                span{
+                    margin-right: 1rem;
+                    color: rgba(0, 0, 0, .5);
+                    span{
+                        font-weight: 600;
+                        color: black;
+                    }
+                }
+            }
+        }
+        .description{
+            margin-top: .5rem;
+            padding: .5rem;
+            font-size: .9rem;
+        }
+    }
+}

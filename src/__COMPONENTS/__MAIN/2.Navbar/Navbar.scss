@@ -1,3 +1,5 @@
+@import '../../../SASS/Compatibilites';
+@import '../../../SASS/Position';
 nav{
     width: 100%;
     height: 64px;
@@ -41,5 +43,15 @@ nav{
         margin: 0;
         margin-left: auto;
         padding: 0;
+    }
+    button{
+        @include borderRadius(5px);
+        margin-left: 2rem;
+        background-color: transparent;
+        border: 2px solid #60aeff;
+        padding: 5px .5rem;
+        &:hover{
+            background-color: #60aeff;
+        }
     }
 }

@@ -10,10 +10,22 @@ export default class DetailSection extends PureComponent {
       <div className="detail-section" id="detail-section">
         {job ? (
           <div className="details">
-            {job.title}
-            {job.company}
-            {job.location}
-            {job.description}
+            <div className="header">
+              <img src={job.company_logo} alt="" />
+              <div className="title">
+                <h2>{job.title}</h2>
+                <span>
+                  Company: <span>{job.company}</span>
+                </span>{" "}
+                <span>
+                  Location: <span>{job.location}</span>
+                </span>
+              </div>
+            </div>
+            <div
+              className="description"
+              dangerouslySetInnerHTML={{ __html: job.description }}
+            ></div>
           </div>
         ) : (
           <p></p>

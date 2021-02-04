@@ -1,0 +1,44 @@
+@import '../../../SASS/Compatibilites';
+@import '../../../SASS/Position';
+.job-loader{
+    @include absoluteCentered();
+    width: 100%;
+    height: 100%;
+    display:flex ;
+    flex-direction:column;
+    align-items:center;
+    .slider{
+        @include absoluteCentered();
+        overflow: hidden;
+        width: calc(128px + 1rem);
+        height: calc(128px + 3rem);
+        .slide-container{
+            width: 600%;
+            height: 128px;
+            display: flex;
+            @include animation(sliding, 12s, ease-in-out, infinite);
+            img{
+                margin: 0 .5rem;
+            }
+        }
+    }
+    p{
+        position: absolute;
+        bottom: 0;
+        font-size:1rem;
+        @include animation(blinking, 1s, linear, infinite);
+    }
+}
+@keyframes sliding {
+    0%{margin-left: 0;}
+    20%{margin-left: -100%;}
+    40%{margin-left: -200%;}
+    60%{margin-left: -300%;}
+    80%{margin-left: -400%}
+    100%{margin-left: -500%;}
+}
+@keyframes blinking {
+    0%{opacity: 1;}
+    50%{opacity: 0;}
+    100%{opacity: 1;}
+}

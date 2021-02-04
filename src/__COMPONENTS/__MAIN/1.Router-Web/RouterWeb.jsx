@@ -25,7 +25,7 @@ class RouterWeb extends PureComponent {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div id="router-web">
         <Navbar />
@@ -35,8 +35,8 @@ class RouterWeb extends PureComponent {
             exact
             render={(props) => (
               <HomePage
-                {...props}
-                results={this.state.results}
+                // {...props}
+                // results={this.state.results}
                 getJobId={this.getJobId}
               />
             )}

@@ -4,24 +4,39 @@ import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 //UTILITIES IMPORTS
-import { getJobsList } from "../../../UTILITIES";
+import { getJobsList, chunkArray } from "../../../UTILITIES";
 
 //STYLE
 import "./Navbar.scss";
 
-const mapStateToProps = (state) => state.search;
+const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  searchEngine: (search) =>
-    dispatch({
-      type: "SEARCH_ENGINE",
-      payload: search,
+  search: (query) =>
+    dispatch(async (dispatch, getState) => {
+      let results = await getJobsList(query);
+      let chunkResults = chunkArray(results, 5);
+      // console.log(results);
+      dispatch({
+        type: "SEARCH_ENGINE",
+        payload: { results: results, chunkResults: chunkResults },
+      });
+    }),
+  getFavs: () =>
+    dispatch((dispatch, getState) => {
+      let favsList = getState().favs.favourites;
+      console.log(favsList);
+      let chunkResults = chunkArray(favsList, 5);
+      dispatch({
+        type: "GET_FAVS",
+        payload: chunkResults,
+      });
     }),
 });
 
 class Navbar extends PureComponent {
   state = {
-    search: null,
+    search: `/positions.json`,
     byDesc: {
       description: "",
       location: "",
@@ -29,13 +44,18 @@ class Navbar extends PureComponent {
     filters: false,
   };
 
-  searching = async (e) => {
-    let results,
-      searchQuery,
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.search(this.state.search);
+    }, 5000);
+  }
+
+  searching = (e) => {
+    let searchQuery,
       byDesc = { ...this.state.byDesc },
       id = e.currentTarget.id;
     if (e.keyCode === 13) {
-      results = await getJobsList(this.state.search);
+      this.props.search(this.state.search);
     } else {
       switch (id) {
         case "description":
@@ -52,7 +72,6 @@ class Navbar extends PureComponent {
       }
       this.setState({ search: searchQuery, byDesc });
     }
-    return results;
   };
 
   showFilters = () => {
@@ -60,7 +79,7 @@ class Navbar extends PureComponent {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <nav>
         <div className="title">
@@ -102,9 +121,7 @@ class Navbar extends PureComponent {
           </div>
           <i className="fas fa-search"></i>
         </div>
-        {/* <ul className="nav-menu">
-          <li></li>
-        </ul> */}
+        <button onClick={() => this.props.getFavs()}>Show Favourites</button>
       </nav>
     );
   }

@@ -5,7 +5,7 @@ import "./Impagination.scss";
 
 export default class Impagination extends PureComponent {
   render() {
-    const { results, navigate } = this.props;
+    const { results, navigate, currentPage } = this.props;
     return (
       <div
         className="impagination"
@@ -17,7 +17,15 @@ export default class Impagination extends PureComponent {
         {results ? (
           results.map((result, index) => {
             return (
-              <button onClick={(e) => navigate(e)} value={index} key={index}>
+              <button
+                onClick={(e) => navigate(e)}
+                value={index}
+                key={index}
+                style={{
+                  backgroundColor:
+                    currentPage === index ? "#59d7f3" : "transparent",
+                }}
+              >
                 {index + 1}
               </button>
             );
@@ -25,6 +33,9 @@ export default class Impagination extends PureComponent {
         ) : (
           <p></p>
         )}
+        <button onClick={(e) => navigate(e)} id="next">
+          next
+        </button>
       </div>
     );
   }

@@ -2,7 +2,7 @@
 export const getJobsList = async (query) => {
     let response = await fetch(`${process.env.REACT_APP_JOBS_API}${query}`),
         result = await response.json()
-    console.log(result)
+    // console.log(result)
     return result
 }
 
@@ -17,6 +17,6 @@ export const chunkArray = (array, value) => {
         chunk = arrayRest.splice(0, value)
         chunkContainer.push(chunk)
     }
-    console.log(chunkContainer)
+    // console.log(chunkContainer)
     return chunkContainer
 }
