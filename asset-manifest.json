@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Jobs-Search-Engine/static/css/main.340e83ab.chunk.css",
-    "main.js": "/Jobs-Search-Engine/static/js/main.217cf33b.chunk.js",
-    "main.js.map": "/Jobs-Search-Engine/static/js/main.217cf33b.chunk.js.map",
-    "runtime-main.js": "/Jobs-Search-Engine/static/js/runtime-main.62c847da.js",
-    "runtime-main.js.map": "/Jobs-Search-Engine/static/js/runtime-main.62c847da.js.map",
+    "main.css": "/Jobs-Search-Engine/static/css/main.5cec3486.chunk.css",
+    "main.js": "/Jobs-Search-Engine/static/js/main.a2c6fe95.chunk.js",
+    "main.js.map": "/Jobs-Search-Engine/static/js/main.a2c6fe95.chunk.js.map",
+    "runtime-main.js": "/Jobs-Search-Engine/static/js/runtime-main.938cedde.js",
+    "runtime-main.js.map": "/Jobs-Search-Engine/static/js/runtime-main.938cedde.js.map",
     "static/css/2.150d169a.chunk.css": "/Jobs-Search-Engine/static/css/2.150d169a.chunk.css",
-    "static/js/2.c8f1cb31.chunk.js": "/Jobs-Search-Engine/static/js/2.c8f1cb31.chunk.js",
-    "static/js/2.c8f1cb31.chunk.js.map": "/Jobs-Search-Engine/static/js/2.c8f1cb31.chunk.js.map",
-    "static/js/3.3c0f6569.chunk.js": "/Jobs-Search-Engine/static/js/3.3c0f6569.chunk.js",
-    "static/js/3.3c0f6569.chunk.js.map": "/Jobs-Search-Engine/static/js/3.3c0f6569.chunk.js.map",
+    "static/js/2.95e20c2b.chunk.js": "/Jobs-Search-Engine/static/js/2.95e20c2b.chunk.js",
+    "static/js/2.95e20c2b.chunk.js.map": "/Jobs-Search-Engine/static/js/2.95e20c2b.chunk.js.map",
+    "static/js/3.8791ea2d.chunk.js": "/Jobs-Search-Engine/static/js/3.8791ea2d.chunk.js",
+    "static/js/3.8791ea2d.chunk.js.map": "/Jobs-Search-Engine/static/js/3.8791ea2d.chunk.js.map",
     "index.html": "/Jobs-Search-Engine/index.html",
     "static/css/2.150d169a.chunk.css.map": "/Jobs-Search-Engine/static/css/2.150d169a.chunk.css.map",
-    "static/css/main.340e83ab.chunk.css.map": "/Jobs-Search-Engine/static/css/main.340e83ab.chunk.css.map",
-    "static/js/2.c8f1cb31.chunk.js.LICENSE.txt": "/Jobs-Search-Engine/static/js/2.c8f1cb31.chunk.js.LICENSE.txt",
+    "static/css/main.5cec3486.chunk.css.map": "/Jobs-Search-Engine/static/css/main.5cec3486.chunk.css.map",
+    "static/js/2.95e20c2b.chunk.js.LICENSE.txt": "/Jobs-Search-Engine/static/js/2.95e20c2b.chunk.js.LICENSE.txt",
     "static/media/Globe.scss": "/Jobs-Search-Engine/static/media/earthmap.7cc5b6cb.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.62c847da.js",
+    "static/js/runtime-main.938cedde.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.c8f1cb31.chunk.js",
-    "static/css/main.340e83ab.chunk.css",
-    "static/js/main.217cf33b.chunk.js"
+    "static/js/2.95e20c2b.chunk.js",
+    "static/css/main.5cec3486.chunk.css",
+    "static/js/main.a2c6fe95.chunk.js"
   ]
 }
