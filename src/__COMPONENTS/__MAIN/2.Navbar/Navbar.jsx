@@ -1,6 +1,7 @@
 //MAIN IMPORTS
 import React, { PureComponent } from "react";
 import { withRouter, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 //UTILITIES IMPORTS
 import { getJobsList } from "../../../UTILITIES";
@@ -8,73 +9,50 @@ import { getJobsList } from "../../../UTILITIES";
 //STYLE
 import "./Navbar.scss";
 
+const mapStateToProps = (state) => state.search;
+
+const mapDispatchToProps = (dispatch) => ({
+  searchEngine: (search) =>
+    dispatch({
+      type: "SEARCH_ENGINE",
+      payload: search,
+    }),
+});
+
 class Navbar extends PureComponent {
-  //   search = async (e) => {
-  //     if (e.keyCode === 13) {
-  //       //   console.log(this.props.state);
-  //       let query = `/positions.json?search=${this.props.state}`;
-  //       let result = await getJobsList(query);
-  //       //   console.log(result);
-  //     } else {
-  //       let searching = e.currentTarget.value;
-  //       this.props.search(searching);
-  //     }
-  //   };
-
-  //   searchByDescriptions = async (e) => {
-  //     if (e.keyCode === 13) {
-  //       let query = `/positions.json?description=${this.props.description}&location=${this.props.location}`;
-  //       let result = await getJobsList(query);
-  //       //   console.log(result);
-  //       console.log(this.props);
-  //     } else {
-  //       let searching = { description: "", location: "" };
-  //       let currentId = e.currentTarget.id;
-  //       searching[currentId] = e.currentTarget.value;
-  //       //   console.log(searching);
-  //       this.props.searchDescription(searching);
-  //     }
-  //   };
-
-  //   searchByLocations = (e) => {
-  //     if (e.keyCode === 13) {
-  //       //   console.log(this.props.state);
-  //     } else {
-  //       let searching = {
-  //         lat: "",
-  //         long: "",
-  //       };
-  //       let currentId = e.currentTarget.id;
-  //       searching[currentId] = e.currentTarget.value;
-  //       this.props.search(searching);
-  //     }
-  //   };
-
   state = {
+    search: null,
     byDesc: {
       description: "",
       location: "",
     },
-    byLocation: {
-      lat: "",
-      long: "",
-    },
     filters: false,
   };
 
-  search = (e) => {
-    this.props.search(e);
-  };
-
-  searchByDescriptions = (e) => {
+  searching = async (e) => {
+    let results,
+      searchQuery,
+      byDesc = { ...this.state.byDesc },
+      id = e.currentTarget.id;
     if (e.keyCode === 13) {
-      this.props.searchByDescriptions(this.state.byDesc);
+      results = await getJobsList(this.state.search);
     } else {
-      let searching = { ...this.state.byDesc };
-      let currentId = e.currentTarget.id;
-      searching[currentId] = e.currentTarget.value;
-      this.setState({ byDesc: searching });
+      switch (id) {
+        case "description":
+          byDesc[id] = e.currentTarget.value;
+          searchQuery = `/positions.json?description=${byDesc.description}&location=${byDesc.location}`;
+          break;
+        case "location":
+          byDesc[id] = e.currentTarget.value;
+          searchQuery = `/positions.json?description=${byDesc.description}&location=${byDesc.location}`;
+          break;
+        default:
+          searchQuery = `/positions.json?search=${e.currentTarget.value}`;
+          break;
+      }
+      this.setState({ search: searchQuery, byDesc });
     }
+    return results;
   };
 
   showFilters = () => {
@@ -82,7 +60,7 @@ class Navbar extends PureComponent {
   };
 
   render() {
-    // console.log(this.props.state);
+    console.log(this.props);
     return (
       <nav>
         <div className="title">
@@ -94,8 +72,8 @@ class Navbar extends PureComponent {
             type="text"
             id="search-bar"
             placeholder="Look for a job"
-            onKeyDown={this.search}
-            onChange={this.search}
+            onKeyDown={this.searching}
+            onChange={this.searching}
             style={{ display: this.state.filters ? "none" : "inline-flex" }}
           />
           <i
@@ -111,15 +89,15 @@ class Navbar extends PureComponent {
               type="text"
               id="description"
               placeholder="Description"
-              onKeyDown={this.searchByDescriptions}
-              onChange={this.searchByDescriptions}
+              onKeyDown={this.searching}
+              onChange={this.searching}
             />
             <input
               type="text"
               id="location"
               placeholder="Location"
-              onKeyDown={this.searchByDescriptions}
-              onChange={this.searchByDescriptions}
+              onKeyDown={this.searching}
+              onChange={this.searching}
             />
           </div>
           <i className="fas fa-search"></i>
@@ -131,4 +109,4 @@ class Navbar extends PureComponent {
     );
   }
 }
-export default withRouter(Navbar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navbar));

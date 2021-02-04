@@ -20,4 +20,3 @@ export const chunkArray = (array, value) => {
     console.log(chunkContainer)
     return chunkContainer
 }
-

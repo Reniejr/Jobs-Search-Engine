@@ -6,10 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import RouterWeb from './__COMPONENTS/__MAIN/1.Router-Web/RouterWeb';
 import { HashRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import {searchConfig} from './_STORE'
+import configureStore from './_STORE'
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={searchConfig()}>
+    <Provider store={configureStore()}>
       <Router>
         <RouterWeb/>
       </Router>  

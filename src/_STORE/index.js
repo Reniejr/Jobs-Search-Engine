@@ -1,16 +1,24 @@
-import { createStore } from 'redux'
-import {searchReducer} from '../_REDUCERS'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
+import {searchReducer} from '../_REDUCERS/search'
+import thunk from 'redux-thunk'
 
-export const searchState = {
-    search: '',
-    description: '',
-    location: '',
-    lat: '',
-    long: ''
+const composedEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || compose
+
+export const mainState = {
+    search: {
+        results: []
+    }
 }
 
-export const searchConfig = () => createStore(
-    searchReducer,
-    searchState,
+const mainReducer = combineReducers({
+    search: searchReducer
+})
+
+export default function configureStore(){ return createStore(
+    mainReducer,
+    mainState,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+)}
+// export default function configureStore() {
+//     return createStore(mainReducer, mainState, composedEnhancer(applyMiddleware(thunk)))
+// }
