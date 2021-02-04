@@ -37,13 +37,13 @@ class JobsList extends PureComponent {
             {page.map((job) => {
               return (
                 <li key={job.id}>
-                  <Atag
+                  {/* <Atag
                     to="detail-section"
                     smooth={true}
                     onClick={() => getJob(job.id, job)}
-                  >
-                    <h6>{job.title}</h6>
-                  </Atag>
+                  > */}
+                  <h6 onClick={() => getJob(job.id, job)}>{job.title}</h6>
+                  {/* </Atag> */}
                   <span>
                     Company : <span>{job.company}</span>
                   </span>{" "}

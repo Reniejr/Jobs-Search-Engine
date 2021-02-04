@@ -18,6 +18,10 @@
 
 }
 
+.paused{
+    animation-play-state: paused;
+}
+
 @keyframes rotation-globe {
     0%{}
     100%{

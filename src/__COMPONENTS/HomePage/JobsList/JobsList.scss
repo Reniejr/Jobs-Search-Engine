@@ -21,6 +21,10 @@
            h6{
                margin: 0;
                font-weight: 700;
+               cursor: pointer;
+               &:hover{
+                   text-decoration:underline;
+               }
            }
            span{
                font-size: 0.8rem;
@@ -37,9 +41,18 @@
                i{
                    position: absolute;
                    right: 0;
-                   font-size: 1rem
-               }
+                   font-size: 1rem;
+                   cursor: pointer;
+                }
+                .far{
+                    &:hover{
+                        color: red;
+                    }
+                }
                .fas{
+                   &:hover{
+                       color: black;
+                   }
                    color: red;
                }
            }

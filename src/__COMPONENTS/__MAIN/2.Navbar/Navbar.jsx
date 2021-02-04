@@ -27,6 +27,7 @@ const mapDispatchToProps = (dispatch) => ({
       let favsList = getState().favs.favourites;
       console.log(favsList);
       let chunkResults = chunkArray(favsList, 5);
+      console.log(chunkResults);
       dispatch({
         type: "GET_FAVS",
         payload: chunkResults,

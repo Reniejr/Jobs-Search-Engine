@@ -7,6 +7,7 @@ export const searchReducer = (state = {}, action) => {
                 chunkResults: action.payload.chunkResults
             }
         case 'GET_FAVS': 
+            console.table(action)
             return {
                 ...state,
                 chunkResults: action.payload

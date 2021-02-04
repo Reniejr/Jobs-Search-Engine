@@ -20,12 +20,23 @@ class HomePage extends PureComponent {
     currentPage: 0,
     countPage: 1,
     job: null,
+    globe: true,
   };
 
   getJob = async (id, job) => {
     let jobSelected = job;
     this.setState({ job: jobSelected });
     this.props.getJobId(id);
+    if (this.state.globe) {
+      setTimeout(() => {
+        this.setState({ globe: false });
+      });
+    } else {
+      this.setState({ globe: true });
+      setTimeout(() => {
+        this.setState({ globe: false });
+      }, 1000);
+    }
   };
 
   navigatePage = (e) => {
@@ -82,7 +93,7 @@ class HomePage extends PureComponent {
       <div id="home-page">
         <div className="header">
           <div className="right-side">
-            <Globe />
+            <Globe job={this.state.job} animation={this.state.globe} />
           </div>
           <div className="left-side">
             <Impagination
