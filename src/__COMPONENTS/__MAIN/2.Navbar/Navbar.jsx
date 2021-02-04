@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
     }),
   getFavs: () =>
     dispatch((dispatch, getState) => {
-      let favsList = getState().favs.favourites;
+      let favsList = [...getState().favs.favourites];
       console.log(favsList);
       let chunkResults = chunkArray(favsList, 5);
       console.log(chunkResults);

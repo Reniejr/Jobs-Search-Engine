@@ -1,6 +1,10 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Link as Atag } from "react-scroll";
+
+//UTILITIES IMPORTS
+import { chunkArray } from "../../../UTILITIES";
+
 import Loader from "../../__MAIN/Loader/Loader";
 
 //STYLE
@@ -11,12 +15,22 @@ const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
   addFavourite: (job) =>
     dispatch(async (dispatch, getState) => {
-      let favsList = getState().favs.favourites;
+      let favsList = [...getState().favs.favourites];
       console.log(favsList);
       if (favsList.filter((fav) => fav.id === job.id).length > 0) {
         dispatch({
           type: "REMOVE_FAV",
           payload: job,
+        });
+        dispatch((dispatch, getState) => {
+          let favsList = [...getState().favs.favourites];
+          console.log(favsList);
+          let chunkResults = chunkArray(favsList, 5);
+          console.log(chunkResults);
+          dispatch({
+            type: "GET_FAVS",
+            payload: chunkResults,
+          });
         });
       } else {
         dispatch({
