@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/Jobs-Search-Engine/static/css/main.cbf6c1d3.chunk.css",
-    "main.js": "/Jobs-Search-Engine/static/js/main.cdc310ee.chunk.js",
-    "main.js.map": "/Jobs-Search-Engine/static/js/main.cdc310ee.chunk.js.map",
+    "main.js": "/Jobs-Search-Engine/static/js/main.ec74787b.chunk.js",
+    "main.js.map": "/Jobs-Search-Engine/static/js/main.ec74787b.chunk.js.map",
     "runtime-main.js": "/Jobs-Search-Engine/static/js/runtime-main.938cedde.js",
     "runtime-main.js.map": "/Jobs-Search-Engine/static/js/runtime-main.938cedde.js.map",
     "static/css/2.150d169a.chunk.css": "/Jobs-Search-Engine/static/css/2.150d169a.chunk.css",
-    "static/js/2.f69f1cc8.chunk.js": "/Jobs-Search-Engine/static/js/2.f69f1cc8.chunk.js",
-    "static/js/2.f69f1cc8.chunk.js.map": "/Jobs-Search-Engine/static/js/2.f69f1cc8.chunk.js.map",
+    "static/js/2.b25d57d4.chunk.js": "/Jobs-Search-Engine/static/js/2.b25d57d4.chunk.js",
+    "static/js/2.b25d57d4.chunk.js.map": "/Jobs-Search-Engine/static/js/2.b25d57d4.chunk.js.map",
     "static/js/3.8791ea2d.chunk.js": "/Jobs-Search-Engine/static/js/3.8791ea2d.chunk.js",
     "static/js/3.8791ea2d.chunk.js.map": "/Jobs-Search-Engine/static/js/3.8791ea2d.chunk.js.map",
     "index.html": "/Jobs-Search-Engine/index.html",
     "static/css/2.150d169a.chunk.css.map": "/Jobs-Search-Engine/static/css/2.150d169a.chunk.css.map",
     "static/css/main.cbf6c1d3.chunk.css.map": "/Jobs-Search-Engine/static/css/main.cbf6c1d3.chunk.css.map",
-    "static/js/2.f69f1cc8.chunk.js.LICENSE.txt": "/Jobs-Search-Engine/static/js/2.f69f1cc8.chunk.js.LICENSE.txt",
+    "static/js/2.b25d57d4.chunk.js.LICENSE.txt": "/Jobs-Search-Engine/static/js/2.b25d57d4.chunk.js.LICENSE.txt",
     "static/media/Globe.scss": "/Jobs-Search-Engine/static/media/earthmap.7cc5b6cb.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.938cedde.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.f69f1cc8.chunk.js",
+    "static/js/2.b25d57d4.chunk.js",
     "static/css/main.cbf6c1d3.chunk.css",
-    "static/js/main.cdc310ee.chunk.js"
+    "static/js/main.ec74787b.chunk.js"
   ]
 }
